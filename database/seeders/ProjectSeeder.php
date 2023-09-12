@@ -28,7 +28,7 @@ class ProjectSeeder extends Seeder
             $project->date = $faker->dateTime();
             $project->last_update = $faker->dateTime();
             $project->description = implode(' ', $faker->paragraphs());
-            $project->image = $faker->image(null, 640, 480);
+            $project->image = $faker->imageUrl(640, 480);
             $project->save();
             $project_tecnologies = [];
             foreach ($tecnology_ids as $tecnology_id) {

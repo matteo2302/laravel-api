@@ -18,10 +18,10 @@ class Project extends Model
     // {
     //     return Attribute::make(set: fn ($value) => asset('storage/' . $value));
     // }
-    public function getImageAttribute($value)
-    {
-        return asset('storage/' . $value);
-    }
+    // public function getImageAttribute($value)
+    // {
+    //     return asset('storage/' . $value);
+    // }
     public function type()
     {
         return $this->belongsto(Type::class);

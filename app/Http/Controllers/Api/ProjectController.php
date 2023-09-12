@@ -13,12 +13,8 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::all()->with('type', 'tecnologies')->orderBy('last_update')->get();
-        foreach ($projects as $project) {
-            if ($project->image) {
-                $project->image = url('storage/' . $project->image);
-            }
-        }
+        $projects = Project::with('type', 'tecnologies')->orderBy('last_update')->get();
+
         return response()->json($projects);
     }
 
@@ -35,7 +31,7 @@ class ProjectController extends Controller
      */
     public function show(string $id)
     {
-        $project = Project::with('tecnologies', 'types')->find($id);
+        $project = Project::with('tecnologies', 'type')->find($id);
         if (!$project) return response(null, 404);
         return response()->json($project);
     }
