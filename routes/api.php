@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Api\ProjectController as ApiProjectController;
 use App\Models\Project;
@@ -26,3 +27,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // });
 Route::get('/projects', [ApiProjectController::class, 'index']);
 Route::get('/projects/{project}', [ApiProjectController::class, 'show']);
+Route::post('/contact-message', [ContactController::class, 'message']);
